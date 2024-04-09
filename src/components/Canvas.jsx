@@ -7,12 +7,11 @@ export default function Canvas() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    console.log(window.innerWidth)
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = "#191A15";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     let img = new Image();
@@ -20,15 +19,15 @@ export default function Canvas() {
     img.onload = () => {
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-      ctx.font = "bold 48px serif";
-      ctx.strokeText("Hello world", 500, 327);
+      ctx.font = "bold 30px franklin gothic";
+      ctx.fillText("SPOKER", 500, 327);
     }
 
     img.onerror = (err) => {
       console.log(err)
     }
 
-    img.src = './KardsOCC_Clash_Bracket.png';
+    img.src = './emptyBracket.png';
 
 
   }, [])
